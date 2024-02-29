@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hellosmile-deployment
+  labels:
+    app: hellosmile
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hellosmile
+  template:
+    metadata:
+      labels:
+        app: hellosmile
+    spec:
+      containers:
+      - name: smile
+        image: 727686732084.dkr.ecr.us-east-1.amazonaws.com/smile:latest
+        resources:
+          requests:
+            memory: 300Mi
+            cpu: 500m
+        ports:
+        - containerPort: 5000

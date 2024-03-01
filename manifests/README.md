@@ -30,6 +30,7 @@ aws eks update-kubeconfig --region us-east-1 --name smile
 
 ```bash
 kubectl create namespace smile
+cd manifests
 kubectl apply -f .
 ```
 

@@ -7,5 +7,7 @@ generate "dev_tfvars" {
   if_exists         = "overwrite"
   disable_signature = true
   contents          = <<-EOF
+  max_worker_node = 5
+  usernameArn = "<ARN>"
   EOF
 }

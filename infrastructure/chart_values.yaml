@@ -4,11 +4,6 @@ rbac:
 controller:
   metrics:
     enabled: true
-  #  serviceMonitor:
-  #    enabled: true
-  #    namespace: monitoring
-  #    additionalLabels:
-  #      release: prom
   service:
     targetPorts:
       http: http

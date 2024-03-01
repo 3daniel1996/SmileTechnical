@@ -10,8 +10,6 @@ This project is a simple Flask API that responds with a JSON message saying "Hel
 - [Installation](#installation)
 - [Usage](#usage)
 - [API Documentation](#api-documentation)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Software Prerequisites
 

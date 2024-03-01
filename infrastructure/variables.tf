@@ -1,11 +1,6 @@
 ###############################################################################
 # General AWS Deployment Options
 ###############################################################################
-variable "account_id" {
-  description = "Your 12-digit AWS account number"
-  default     = "01234567891"
-  type        = string
-}
 variable "aws_region" {
   description = "A region code describing the location of the physical AWS data center in which all resources will be deployed."
   default     = "us-east-1"
@@ -14,19 +9,9 @@ variable "aws_region" {
 
 
 variable "shared_resource_name" {
-  description = "A short string value to identify the subdomain of your WAS installation as well as all resources that Terraform will create."
-  default     = "was"
+  description = "A short string value to identify the subdomain of your HelloSmile"
+  default     = "smile"
   type        = string
-}
-
-variable "tags" {
-  description = "User-defined AWS resource tracking tags to add to all resources that Terraform creates"
-  type        = map(string)
-  default = {
-    Terraform   = "true"
-    Platform    = "Wolfram Application Server"
-    Environment = "was"
-  }
 }
 
 ###############################################################################
@@ -54,14 +39,19 @@ variable "public_subnets" {
 ###############################################################################
 # AWS EKS variables
 ###############################################################################
+variable "usernameArn" {
+  description = "User Arn you will be running the manifest scripts"
+  type        = string
+}
+
 variable "cluster_version" {
   description = "The version of Kubernetes for your AWS EKS Kubernetes cluster"
-  default     = "1.27"
+  default     = "1.29"
   type        = string
 }
 
 variable "namespace" {
-  default = "was"
+  default = "smile"
   type    = string
 }
 

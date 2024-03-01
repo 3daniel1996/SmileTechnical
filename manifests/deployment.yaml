@@ -14,9 +14,31 @@ spec:
       labels:
         app: hellosmile
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - hellosmile
+            topologyKey: "kubernetes.io/zone"
       containers:
       - name: smile
-        image: 727686732084.dkr.ecr.us-east-1.amazonaws.com/smile:latest
+        image: <AWSACCOUNTNUMBER>.dkr.ecr.us-east-1.amazonaws.com/smile:latest
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 5000
+          initialDelaySeconds: 10
+          periodSeconds: 15
         resources:
           requests:
             memory: 300Mi

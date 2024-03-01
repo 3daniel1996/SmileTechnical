@@ -6,23 +6,28 @@ module "eks" {
   cluster_version                 = var.cluster_version
   vpc_id                          = module.vpc.vpc_id
   subnet_ids                      = module.vpc.private_subnets
-  create_cloudwatch_log_group     = false
+  create_cloudwatch_log_group     = true
   cluster_endpoint_private_access = true
   cluster_endpoint_public_access  = true
   enable_irsa                     = true
-  tags                            = var.tags
   create_kms_key                  = true
 
 
   cluster_addons = {
-    vpc-cni    = {}
-    coredns    = {}
-    kube-proxy = {}
+    vpc-cni = {
+      most_recent = true
+    }
+    coredns = {
+      most_recent = true
+    }
+    kube-proxy = {
+      most_recent = true
+    }
   }
 
   node_security_group_additional_rules = {
     ingress_self_all = {
-      description = "WAS: Node to node all ports/protocols"
+      description = "Node to node all ports/protocols"
       protocol    = "-1"
       from_port   = 0
       to_port     = 0
@@ -30,13 +35,29 @@ module "eks" {
       cidr_blocks = ["192.168.0.0/16"]
     }
     egress_all = {
-      description      = "WAS: Node all egress"
+      description      = "Node all egress"
       protocol         = "-1"
       from_port        = 0
       to_port          = 0
       type             = "egress"
       cidr_blocks      = ["0.0.0.0/0"]
       ipv6_cidr_blocks = ["::/0"]
+    }
+  }
+  access_entries = {
+    admin = {
+      kubernetes_groups = []
+      principal_arn     = "${var.usernameArn}"
+      # I would create Roles instead of plugging this in.
+      policy_associations = {
+        admin = {
+          policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
+          access_scope = {
+            namespaces = []
+            type       = "cluster"
+          }
+        }
+      }
     }
   }
 

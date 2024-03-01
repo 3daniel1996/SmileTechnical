@@ -2,11 +2,11 @@ include {
   path = find_in_parent_folders()
 }
 
-generate "test_tfvars" {
-  path              = "test.auto.tfvars"
+generate "dev_tfvars" {
+  path              = "dev.auto.tfvars"
   if_exists         = "overwrite"
   disable_signature = true
   contents          = <<-EOF
-  tfvars!!!
+  max_worker_node = 5
   EOF
 }

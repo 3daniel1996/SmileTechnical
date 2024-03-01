@@ -25,18 +25,18 @@ To run this Flask API locally, follow these steps:
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/your-repository.git
-    cd your-repository
+    git clone https://github.com/3daniel1996/SmileTechnical.git
+    cd SmileTechnical
     ```
 
 2. **Build the Docker image:**
     ```bash
-    docker build -t flask-app .
+    docker build -t smile .
     ```
 
 3. **Run the Docker container:**
     ```bash
-    docker run -p 5000:5000 flask-app
+    docker run -p 5000:5000 smile
     ```
 
 ## Usage

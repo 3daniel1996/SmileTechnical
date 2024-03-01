@@ -14,6 +14,7 @@ Smile API built in Flask deployed using AWS/Terraform and Kubernetes.
 
 List of Addional features If I had more time:
 
+- Take out public API endpoint and setup BastionHost within VPC
 - CI/CD Pipeline (Github Actions & ArgoCD)
 - LoadTesting
 - Security scans

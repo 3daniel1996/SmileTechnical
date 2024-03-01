@@ -43,7 +43,7 @@ aws ecr get-login-password --region <your-region> | docker login --username AWS 
 ```
 ### 7. Tag and Push Docker Image to AWS
 
-Run the following command in your terminal to Build the previously created [Link text](https://github.com/3daniel1996/SmileTechnical/blob/main/app/README.md 'Image'):
+Run the following command in your terminal to Build the previously created [Image](https://github.com/3daniel1996/SmileTechnical/blob/main/app/README.md 'Docker Build'):
 
 ```bash
 docker tag <your-image-name>:latest <your-account-id>.dkr.ecr.<your-region>.amazonaws.com/smile:latest

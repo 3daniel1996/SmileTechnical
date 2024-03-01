@@ -26,7 +26,7 @@ To run this Flask API locally, follow these steps:
 1. **Clone the repository:**
     ```bash
     git clone https://github.com/3daniel1996/SmileTechnical.git
-    cd SmileTechnical
+    cd SmileTechnical/app
     ```
 
 2. **Build the Docker image:**

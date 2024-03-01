@@ -8,5 +8,6 @@ generate "dev_tfvars" {
   disable_signature = true
   contents          = <<-EOF
   max_worker_node = 5
+  usernameArn = "<ARN>"
   EOF
 }

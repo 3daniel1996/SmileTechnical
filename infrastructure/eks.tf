@@ -11,7 +11,7 @@ module "eks" {
   cluster_endpoint_public_access  = true
   enable_irsa                     = true
   create_kms_key                  = true
-
+  enable_cluster_creator_admin_permissions = true
 
   cluster_addons = {
     vpc-cni = {
@@ -44,23 +44,6 @@ module "eks" {
       ipv6_cidr_blocks = ["::/0"]
     }
   }
-  access_entries = {
-    admin = {
-      kubernetes_groups = []
-      principal_arn     = "${var.usernameArn}"
-      # I would create Roles instead of plugging this in.
-      policy_associations = {
-        admin = {
-          policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
-          access_scope = {
-            namespaces = []
-            type       = "cluster"
-          }
-        }
-      }
-    }
-  }
-
   eks_managed_node_groups = {
     eks = {
       name              = "${var.shared_resource_name}-worker-nodes"

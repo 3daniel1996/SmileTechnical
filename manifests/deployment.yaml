@@ -26,7 +26,7 @@ spec:
             topologyKey: "kubernetes.io/zone"
       containers:
       - name: smile
-        image: <AWSACCOUNTNUMBER>.dkr.ecr.us-east-1.amazonaws.com/smile:latest
+        image: 727686732084.dkr.ecr.us-east-1.amazonaws.com/smile:latest
         readinessProbe:
           httpGet:
             path: /

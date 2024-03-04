@@ -39,11 +39,6 @@ variable "public_subnets" {
 ###############################################################################
 # AWS EKS variables
 ###############################################################################
-variable "usernameArn" {
-  description = "User Arn you will be running the manifest scripts"
-  type        = string
-}
-
 variable "cluster_version" {
   description = "The version of Kubernetes for your AWS EKS Kubernetes cluster"
   default     = "1.29"

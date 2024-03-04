@@ -21,5 +21,6 @@ List of Addional features If I had more time:
 - DNS/TLS Certificates with cert-manager
 - Observability with Promethius/Grafana
 - RBAC/ROLES
+- Network Policies
 - if more complex application secrets/configmaps
 
